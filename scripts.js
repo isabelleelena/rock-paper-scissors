@@ -1,13 +1,11 @@
 function getComputerChoice () {
-    let randomNumber = Math.floor(Math.random() * 4);
+    let randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber == 1) {
        return "Paper";
     } else if (randomNumber == 2) {
         return "Rock";
-    } else if (randomNumber == 3) {
-        return "Scissors";
     } else {
-        return "Oops, try again.";
+        return "Scissors";
     }
 }
 
@@ -28,103 +26,29 @@ function gamePlay(playerSelection, computerSelection) {
             case "PaperPaper":
             case "ScissorsScissors":
                 return `You tied with the computer`;
-
-            case "RockOops, try again.":
-            case "ScissorsOops, try again.":
-            case "PaperOops, try again.":
-                return `Computer made a mistake. Try again.`;
         }
 }
 
 function game() {
     let playerScore = 0;
     let computerScore = 0;
-    if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `Computer wins, you lose!`) {
-        computerScore += 1
-    } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You beat the computer!`) {
-        playerScore += 1
-    } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You tied with the computer`) {
-        console.log("It's a tie, try again!")
-    } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `Computer made a mistake. Try again.`) {
-        if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `Computer wins, you lose!`) {
-            computerScore += 1
-        } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You beat the computer!`) {
-            playerScore += 1
-        } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You tied with the computer`) {
-            console.log("It's a tie, try again!")
+    for (let i=0; i < 5; i++) {
+        let round = gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice());
+        if (round == `Computer wins, you lose!`){
+            computerScore += 1;
+            console.log(`Computer wins round ${(i+1)}. Score is ${computerScore}/${playerScore}.`)
+        } else if (round == `You beat the computer!`){
+            playerScore += 1;
+            console.log(`You win round ${(i+1)}. Score is ${computerScore}/${playerScore}.`)
+        } else {
+            console.log(`You tied with the computer on round ${i+1}. Score is ${computerScore}/${playerScore}.`)
         }
     }
-    console.log(`Your score is ${playerScore}. The computer's score is ${computerScore}.`)
-    if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `Computer wins, you lose!`) {
-        computerScore += 1
-    } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You beat the computer!`) {
-        playerScore += 1
-    } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You tied with the computer`) {
-        console.log("It's a tie, try again!")
-    } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `Computer made a mistake. Try again.`) {
-        if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `Computer wins, you lose!`) {
-            computerScore += 1
-        } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You beat the computer!`) {
-            playerScore += 1
-        } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You tied with the computer`) {
-            console.log("It's a tie, try again!")
-        }
-    }
-    console.log(`Your score is ${playerScore}. The computer's score is ${computerScore}.`)
-    if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `Computer wins, you lose!`) {
-        computerScore += 1
-    } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You beat the computer!`) {
-        playerScore += 1
-    } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You tied with the computer`) {
-        console.log("It's a tie, try again!")
-    } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `Computer made a mistake. Try again.`) {
-        if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `Computer wins, you lose!`) {
-            computerScore += 1
-        } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You beat the computer!`) {
-            playerScore += 1
-        } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You tied with the computer`) {
-            console.log("It's a tie, try again!")
-        }
-    }
-    console.log(`Your score is ${playerScore}. The computer's score is ${computerScore}.`)
-    if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `Computer wins, you lose!`) {
-        computerScore += 1
-    } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You beat the computer!`) {
-        playerScore += 1
-    } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You tied with the computer`) {
-        console.log("It's a tie, try again!")
-    } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `Computer made a mistake. Try again.`) {
-        if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `Computer wins, you lose!`) {
-            computerScore += 1
-        } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You beat the computer!`) {
-            playerScore += 1
-        } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You tied with the computer`) {
-            console.log("It's a tie, try again!")
-        }
-    }
-    console.log(`Your score is ${playerScore}. The computer's score is ${computerScore}.`)
-    if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `Computer wins, you lose!`) {
-        computerScore += 1
-    } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You beat the computer!`) {
-        playerScore += 1
-    } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You tied with the computer`) {
-        console.log("It's a tie, try again!")
-    } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `Computer made a mistake. Try again.`) {
-        if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `Computer wins, you lose!`) {
-            computerScore += 1
-        } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You beat the computer!`) {
-            playerScore += 1
-        } else if (gamePlay(prompt("Rock, Paper or Scissors?"), getComputerChoice()) == `You tied with the computer`) {
-            console.log("It's a tie, try again!")
-        }
-    }
-    console.log(`Your score is ${playerScore}. The computer's score is ${computerScore}.`)
-    
     if (computerScore > playerScore) {
-        return `Computer score is ${computerScore} and your score is ${playerScore}! Computer wins!`
+        console.log(`Computer is the ultimate winner! Score is ${computerScore}/${playerScore}.`)
     } else if (computerScore < playerScore) {
-        return `Computer score is ${computerScore} and your score is ${playerScore}! You win!`
+        console.log(`You are the ultimate winner! Score is ${computerScore}/${playerScore}.`)
     } else {
-        return `You are tied!`
+        console.log(`You tied with the computer overall. Score is ${computerScore}/${playerScore}.`)
     }
 }
