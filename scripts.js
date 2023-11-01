@@ -1,8 +1,3 @@
-const rockButton = document.querySelector('.rock');
-
-rockButton.addEventListener('click', () => {console.log("You clicked a button.")});
-
-
 function getComputerChoice () {
     let randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber == 1) {
@@ -14,22 +9,43 @@ function getComputerChoice () {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
+const results = document.querySelector('div');
 
+let playerScore = 0;
+let computerScore = 0;
+
+function playRound(playerSelection, computerSelection) {
         switch(playerSelection + computerSelection) {
             case "RockPaper":
             case "PaperScissors":
             case "ScissorsRock":
-                console.log(`Computer wins, you lose!`);
+                    computerScore += 1;
+                    results.innerText += `\nComputer wins, you lose! The score is currently player score: ${playerScore}, computer score: ${computerScore}.`;
+                    break;
+                
 
             case "RockScissors":
             case "ScissorsPaper":
             case "PaperRock":
-                console.log(`You beat the computer!`);
+                    playerScore += 1;
+                    results.innerText += `\nYou beat the computer! The score is currently player score: ${playerScore}, computer score: ${computerScore}.`;
+                    break;
+            
             
             case "RockRock":
             case "PaperPaper":
             case "ScissorsScissors":
-                console.log(`You tied with the computer`);
+                    results.innerText += `\nYou tied with the computer! The score is currently player score: ${playerScore}, computer score: ${computerScore}.`;
+                    break;
         }
 }
+
+const buttons = document.querySelectorAll('input');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playRound(button.value, getComputerChoice())
+    })
+})
+
+
